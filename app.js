@@ -22,9 +22,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false, // true in production with HTTPS
+    secure: true, // true in production with HTTPS
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000
+    maxAge: 24 * 60 * 60 * 1000,
+    sameSite: 'None',
   }
 }));
 
