@@ -10,6 +10,8 @@ router.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
 );
 
+console.log("Redirecting to:", `${VERCEL_URL}/create`);
+
 router.get('/google/callback',
   passport.authenticate('google', {
     failureRedirect: '/login',
