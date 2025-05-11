@@ -40,7 +40,6 @@ app.use(cors({
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-app.options('*', cors());
 
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/customers', customerRoutes);
