@@ -5,6 +5,7 @@ dotenv.config();
 
 const router = express.Router();
 const VERCEL_URL = process.env.VERCEL_URL
+const FRONTEND_URL = 'https://xeno-crm-frontend-three.vercel.app';
 
 router.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
@@ -12,10 +13,17 @@ router.get('/google',
 
 console.log("Redirecting to:", `${VERCEL_URL}/create`);
 
+// router.get('/google/callback',
+//   passport.authenticate('google', {
+//     failureRedirect: '/login',
+//     successRedirect: `${VERCEL_URL}/create` // or /create
+//   })
+// );
+
 router.get('/google/callback',
   passport.authenticate('google', {
     failureRedirect: '/login',
-    successRedirect: `${VERCEL_URL}/create` // or /create
+    successRedirect: `${FRONTEND_URL}/create`, // make sure this route exists
   })
 );
 
