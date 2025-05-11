@@ -12,7 +12,7 @@ import session from 'express-session';
 import passport from 'passport';
 import './config/passport.js';
 import authRoutes from './routes/authRoutes.js';
-
+import aiRoutes from './routes/aiRoutes.js';
 
 dotenv.config();
 const app = express();
@@ -45,6 +45,7 @@ app.use('/api/campaigns', campaignRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/orders', orderRoutes); 
 app.use('/api/vendor', vendorRoutes);
+app.use('/api/ai', aiRoutes);
 app.use('/auth', authRoutes);
 
 const MONGO_URI =process.env.MONGO_URI ;
