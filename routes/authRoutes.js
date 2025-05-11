@@ -1,8 +1,10 @@
 import express from 'express';
 import passport from 'passport';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const router = express.Router();
-const VERCEL_URL = process.env.VERCEL_URL || 'http://localhost:5173'
+const VERCEL_URL = process.env.VERCEL_URL
 
 router.get('/google',
   passport.authenticate('google', { scope: ['profile', 'email'] })
